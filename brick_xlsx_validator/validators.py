@@ -9,7 +9,7 @@ logger.setLevel(logging.INFO)
 
 
 def readAndValidateExcelFile(xlFile: pd.ExcelFile) -> Tuple[dict, list]:
-    sheets = ['equipment', 'location', 'points']
+    sheets = ['equipment', 'locations', 'points']
     output = {}
     errors = []
     for sheet in sheets:
