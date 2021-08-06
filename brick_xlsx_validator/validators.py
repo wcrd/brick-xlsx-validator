@@ -1,6 +1,9 @@
 import pandas as pd
 import logging
 from typing import Tuple
+import pkgutil
+import rdflib
+import io
 
 from . import helpers
 
@@ -28,6 +31,47 @@ def validateIdentifierColumns(dfs:dict):
             logger.warning(f"No valid identifier column found in {k} df. Aborting.")
             raise ValueError(f"No valid identifier column found in {k} df.")
         logger.info(f"--> SUCCESS. Validated identifiers for {k}")
+
+
+def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, brick_version: str, switch_version: str):
+    g = rdflib.Graph()
+    bad_classes = []
+
+    if load_brick:
+        logger.info("Loading Brick Ontology for validation")
+        # get ontology data from package
+        data = pkgutil.get_data(
+            __name__, f"ontologies/Brick/{brick_version}/Brick.ttl"
+        ).decode()
+        # wrap in StringIO to make it file-like
+        g.parse(source=io.StringIO(data), format="turtle")
+
+    if load_switch:
+        logger.info("Loading Switch Ontology for validation")
+        # get ontology data from package
+        data = pkgutil.get_data(
+            __name__, f"ontologies/Switch/{switch_version}/Brick-SwitchExtension.ttl"
+        ).decode()
+        # wrap in StringIO to make it file-like
+        g.parse(source=io.StringIO(data), format="turtle")
+
+    ns = helpers.generate_namespaces(g)
+    valid_classes = list(filter(lambda x: "#" in x.toPython(), g.subjects()))
+
+    for cls in classes:
+        if "switch:" in cls:
+            cls = helpers.format_fragment(cls.replace("switch:", ""))
+            namespace = "switch"
+        else:
+            cls = helpers.format_fragment(cls)
+            namespace = "brick"
+
+        if ns[namespace][cls] not in valid_classes:
+            logger.warning(f"{namespace}:{cls} is not a valid {namespace} class")
+            bad_classes.append(cls)
+
+    logger.info(f"Completed checking classes. {len(bad_classes)} bad classes found.")
+    return bad_classes
 
 
 def validateReferences(dfs, subjects, ontologyName: str, relationships_to_process: list) -> Tuple[pd.DataFrame, list]:

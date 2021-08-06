@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def validate(filepath) -> Tuple[pd.DataFrame, set]:
+def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.0") -> Tuple[pd.DataFrame, set, list]:
     """Most of this function should be replaced by pandas validation package"""
     try:
         xlFile = pd.ExcelFile(filepath)
@@ -27,10 +27,14 @@ def validate(filepath) -> Tuple[pd.DataFrame, set]:
         # validate sheet references against this list
         bad_rows, bad_references = vd.validateReferences(dfs, subjects, "Brick", BRICK_RELATIONSHIPS)
 
+        # validate subjects are valid Brick or Switch entities
+        classes = pd.concat([df['Brick']['class'] for df in dfs.values()], ignore_index=True).drop_duplicates().dropna()
+        bad_classes = vd.validateClasses(classes, load_brick, load_switch, brick_version, switch_version)
+
         logger.info(f"Process complete.")
         logger.info(f" {len(bad_rows)} entities with bad references found in file {filepath} with a total of {len(bad_references)} instances of bad references")
 
-        return bad_rows, set(bad_references)
+        return bad_rows, set(bad_references), bad_classes
 
     except Exception as e:
         logger.error(f"Failed to process file {filepath} due to errors in the file")
