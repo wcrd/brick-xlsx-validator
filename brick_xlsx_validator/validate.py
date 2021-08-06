@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.0") -> Tuple[pd.DataFrame, set, list]:
+def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.1") -> Tuple[pd.DataFrame, set, list]:
     """Most of this function should be replaced by pandas validation package"""
     try:
         xlFile = pd.ExcelFile(filepath)

@@ -1,10 +1,10 @@
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix dcterms: <http://purl.org/dc/terms#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix switch: <https://switchautomation.com/schemas/BrickExtension/1.0#> .
-@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
 
 brick:hasUuid a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
@@ -13,7 +13,7 @@ brick:hasUuid a owl:AsymmetricProperty,
 
 <https://switchautomation.com/schemas/BrickExtension/1.0> a owl:Ontology ;
     rdfs:label "Brick-SwitchExtension" ;
-    dcterms:version "1.0.6" ;
+    dcterms:version "1.1.0" ;
     skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
 
 switch:Active_Chilled_Beam a owl:Class ;
@@ -2106,14 +2106,8 @@ tag:Drain a brick:Tag ;
 tag:EV a brick:Tag ;
     rdfs:label "EV" .
 
-tag:Economizer a brick:Tag ;
-    rdfs:label "Economizer" .
-
 tag:Emergency a brick:Tag ;
     rdfs:label "Emergency" .
-
-tag:Energy a brick:Tag ;
-    rdfs:label "Energy" .
 
 tag:Escalator a brick:Tag ;
     rdfs:label "Escalator" .
@@ -2139,9 +2133,6 @@ tag:IAQ a brick:Tag ;
 tag:Kitchen a brick:Tag ;
     rdfs:label "Kitchen" .
 
-tag:Liquid a brick:Tag ;
-    rdfs:label "Liquid" .
-
 tag:Lockout a brick:Tag ;
     rdfs:label "Lockout" .
 
@@ -2157,9 +2148,6 @@ tag:Moving a brick:Tag ;
 tag:Night a brick:Tag ;
     rdfs:label "Night" .
 
-tag:Occupancy a brick:Tag ;
-    rdfs:label "Occupancy" .
-
 tag:Open a brick:Tag ;
     rdfs:label "Open" .
 
@@ -2171,9 +2159,6 @@ tag:Pan a brick:Tag ;
 
 tag:Passive a brick:Tag ;
     rdfs:label "Passive" .
-
-tag:Point a brick:Tag ;
-    rdfs:label "Point" .
 
 tag:Preheating a brick:Tag ;
     rdfs:label "Preheating" .
@@ -2225,9 +2210,6 @@ tag:Sweeper a brick:Tag ;
 
 tag:TVOC a brick:Tag ;
     rdfs:label "TVOC" .
-
-tag:Time a brick:Tag ;
-    rdfs:label "Time" .
 
 tag:Toilet a brick:Tag ;
     rdfs:label "Toilet" .
@@ -2410,9 +2392,6 @@ tag:Domestic a brick:Tag ;
 tag:EconCycle a brick:Tag ;
     rdfs:label "EconCycle" .
 
-tag:Frequency a brick:Tag ;
-    rdfs:label "Frequency" .
-
 tag:Heat a brick:Tag ;
     rdfs:label "Heat" .
 
@@ -2525,15 +2504,6 @@ tag:DHW a brick:Tag ;
 tag:Dehumidification a brick:Tag ;
     rdfs:label "Dehumidification" .
 
-tag:Enthalpy a brick:Tag ;
-    rdfs:label "Enthalpy" .
-
-tag:Equipment a brick:Tag ;
-    rdfs:label "Equipment" .
-
-tag:Level a brick:Tag ;
-    rdfs:label "Level" .
-
 tag:Low a brick:Tag ;
     rdfs:label "Low" .
 
@@ -2542,9 +2512,6 @@ tag:Mode a brick:Tag ;
 
 tag:Occupied a brick:Tag ;
     rdfs:label "Occupied" .
-
-tag:Parameter a brick:Tag ;
-    rdfs:label "Parameter" .
 
 tag:Request a brick:Tag ;
     rdfs:label "Request" .
@@ -2564,9 +2531,6 @@ tag:Beam a brick:Tag ;
 
 tag:Bypass a brick:Tag ;
     rdfs:label "Bypass" .
-
-tag:CO2 a brick:Tag ;
-    rdfs:label "CO2" .
 
 tag:Current a brick:Tag ;
     rdfs:label "Current" .
@@ -2612,41 +2576,11 @@ tag:Active a brick:Tag ;
 tag:Evaporator a brick:Tag ;
     rdfs:label "Evaporator" .
 
-tag:Filter a brick:Tag ;
-    rdfs:label "Filter" .
-
-tag:Limit a brick:Tag ;
-    rdfs:label "Limit" .
-
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
 
-tag:Oil a brick:Tag ;
-    rdfs:label "Oil" .
-
-tag:Power a brick:Tag ;
-    rdfs:label "Power" .
-
-tag:Alarm a brick:Tag ;
-    rdfs:label "Alarm" .
-
-tag:Compressor a brick:Tag ;
-    rdfs:label "Compressor" .
-
-tag:Humidity a brick:Tag ;
-    rdfs:label "Humidity" .
-
 tag:Load a brick:Tag ;
     rdfs:label "Load" .
-
-tag:System a brick:Tag ;
-    rdfs:label "System" .
-
-tag:Pump a brick:Tag ;
-    rdfs:label "Pump" .
-
-tag:Voltage a brick:Tag ;
-    rdfs:label "Voltage" .
 
 tag:Call a brick:Tag ;
     rdfs:label "Call" .
@@ -2657,29 +2591,17 @@ tag:Differential a brick:Tag ;
 tag:Enable a brick:Tag ;
     rdfs:label "Enable" .
 
-tag:Flow a brick:Tag ;
-    rdfs:label "Flow" .
-
 tag:Entering a brick:Tag ;
     rdfs:label "Entering" .
 
 tag:Exhaust a brick:Tag ;
     rdfs:label "Exhaust" .
 
-tag:VFD a brick:Tag ;
-    rdfs:label "VFD" .
-
 tag:Heating a brick:Tag ;
     rdfs:label "Heating" .
 
-tag:Outside a brick:Tag ;
-    rdfs:label "Outside" .
-
 tag:Phase a brick:Tag ;
     rdfs:label "Phase" .
-
-tag:Pressure a brick:Tag ;
-    rdfs:label "Pressure" .
 
 tag:Cooling a brick:Tag ;
     rdfs:label "Cooling" .
@@ -2689,12 +2611,6 @@ tag:Isolation a brick:Tag ;
 
 tag:Refrigerant a brick:Tag ;
     rdfs:label "Refrigerant" .
-
-tag:Speed a brick:Tag ;
-    rdfs:label "Speed" .
-
-tag:Damper a brick:Tag ;
-    rdfs:label "Damper" .
 
 tag:Discharge a brick:Tag ;
     rdfs:label "Discharge" .
@@ -2710,40 +2626,4 @@ tag:Off a brick:Tag ;
 
 tag:On a brick:Tag ;
     rdfs:label "On" .
-
-tag:Condenser a brick:Tag ;
-    rdfs:label "Condenser" .
-
-tag:Zone a brick:Tag ;
-    rdfs:label "Zone" .
-
-tag:Fan a brick:Tag ;
-    rdfs:label "Fan" .
-
-tag:Valve a brick:Tag ;
-    rdfs:label "Valve" .
-
-tag:Command a brick:Tag ;
-    rdfs:label "Command" .
-
-tag:Setpoint a brick:Tag ;
-    rdfs:label "Setpoint" .
-
-tag:Temperature a brick:Tag ;
-    rdfs:label "Temperature" .
-
-tag:Position a brick:Tag ;
-    rdfs:label "Position" .
-
-tag:Status a brick:Tag ;
-    rdfs:label "Status" .
-
-tag:Water a brick:Tag ;
-    rdfs:label "Water" .
-
-tag:Air a brick:Tag ;
-    rdfs:label "Air" .
-
-tag:Sensor a brick:Tag ;
-    rdfs:label "Sensor" .
 
