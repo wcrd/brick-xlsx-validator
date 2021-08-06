@@ -1,7 +1,9 @@
 import logging
+import rdflib
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
 
 # Validate URIs
 # TODO: Is there an official way to do this??
@@ -40,3 +42,10 @@ def validate_relationships(df_headers, relationships_to_process):
             logger.debug(f"Input df does not have relationship: {relationship} defined.")
 
     return relationships
+
+
+def generate_namespaces(graph: rdflib.Graph) -> dict:
+    # generate callable Namespace objects from Graph
+    namespaceURIs = dict(graph.namespaces())
+    # create namespace objects to make querying easier
+    return {name: rdflib.Namespace(URI) for name, URI in namespaceURIs.items()}
