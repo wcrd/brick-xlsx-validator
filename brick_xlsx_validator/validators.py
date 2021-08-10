@@ -33,7 +33,7 @@ def validateIdentifierColumns(dfs:dict):
         logger.info(f"--> SUCCESS. Validated identifiers for {k}")
 
 
-def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, brick_version: str, switch_version: str):
+def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, brick_version: str, switch_version: str, custom_graph: rdflib.Graph = None):
     g = rdflib.Graph()
     bad_classes = []
 
@@ -54,6 +54,10 @@ def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, bri
         ).decode()
         # wrap in StringIO to make it file-like
         g.parse(source=io.StringIO(data), format="turtle")
+
+    if custom_graph:
+        logger.info("Loading custom ontology for validation")
+        g = g + custom_graph
 
     ns = helpers.generate_namespaces(g)
     valid_classes = list(filter(lambda x: "#" in x.toPython(), g.subjects()))
