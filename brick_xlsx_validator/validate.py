@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.1", custom_graph: rdflib.Graph = None) -> Tuple[pd.DataFrame, set, list]:
+def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.1", custom_graph: rdflib.Graph = None, reference_field: tuple = ("General","uuid")) -> Tuple[pd.DataFrame, set, list]:
     """Most of this function should be replaced by pandas validation package"""
     try:
         xlFile = pd.ExcelFile(filepath)
@@ -21,12 +21,21 @@ def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_
         # validate important columns exist
         vd.validateIdentifierColumns(dfs)
 
-        # generate list of model subjects
-        subjects = pd.concat([df['Brick']['identifier'] for df in dfs.values()],
+        # validate reference_field exists
+        vd.validateReferenceColumn(dfs, reference_field)
+
+        # generate list of entities by reference_field
+        entities_by_referenced_field = pd.concat([df[reference_field] for df in dfs.values()],
                              ignore_index=True)
 
+        # generate list of model subjects
+        # subjects = pd.concat([df['Brick']['identifier'] for df in dfs.values()],
+        #                      ignore_index=True)
+
+        
+
         # validate sheet references against this list
-        bad_rows, bad_references = vd.validateReferences(dfs, subjects, "Brick", BRICK_RELATIONSHIPS)
+        bad_rows, bad_references = vd.validateReferences(dfs, entities_by_referenced_field, "Brick", BRICK_RELATIONSHIPS)
 
         # validate subjects are valid Brick or Switch entities
         classes = pd.concat([df['Brick']['class'] for df in dfs.values()], ignore_index=True).drop_duplicates().dropna()

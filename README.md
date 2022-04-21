@@ -18,14 +18,15 @@ import os
 
 model_path = r"path_to_excel/excel_file.xlsx"
 
-df, bad_refs, bad_classes = bv.validate(os.path.join(model_path))
+bad_rows, bad_refs, bad_classes = bv.validate(os.path.join(model_path))
 ```
 
 The validator can take a number of options:
 ```python
-validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.1", custom_graph: rdflib.Graph = None)
+validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.1", custom_graph: rdflib.Graph = None, relationship_field: tuple = ("Brick", "label"))
 ```
 `custom_graph`: a custom ontology definition in .ttl format that can be used for class validation
+`relationship_field`: the field in the template which entities reference each other by. In a Brick model this would always be the 'subject' field, however some flexibility is allowed for in the spreadsheet based definition, allowing entities to reference each other by 'label' rather than a uuid, for example.
 
 The output of the validator is:
 * pandas dataframe containing the 'bad' rows from the read file, including the errors found for that row

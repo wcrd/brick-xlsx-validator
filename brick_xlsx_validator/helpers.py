@@ -1,5 +1,6 @@
 import logging
 import rdflib
+from typing import Tuple
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -43,6 +44,15 @@ def validate_relationships(df_headers, relationships_to_process):
 
     return relationships
 
+# Validate column exists
+# Checks to see if multilevel column exists
+def validate_column(df_headers, column_tuple) -> Tuple[bool, list]:
+    '''
+    Checks if the given multilevel column field exists in the given column set.
+
+    Returns: column exists->bool
+    '''
+    return column_tuple in df_headers
 
 def generate_namespaces(graph: rdflib.Graph) -> dict:
     # generate callable Namespace objects from Graph

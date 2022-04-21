@@ -78,9 +78,20 @@ def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, bri
     return bad_classes
 
 
-def validateReferences(dfs, subjects, ontologyName: str, relationships_to_process: list) -> Tuple[pd.DataFrame, list]:
+def validateReferenceColumn(dfs:dict, reference_field:str) -> bool:
+    logger.info(f"Relationships defined using <{reference_field}> field.")
+    for k, df in dfs.items():
+        result = helpers.validate_column(df.columns, reference_field)
+        # logger.info(f"{k}: field exists = {result}")
+        if not result:
+            logger.warning(f"{reference_field} column not found in {k} df. Aborting.")
+            raise ValueError(f"No valid identifier column found in {k} df.")
+        logger.info(f"--> SUCCESS. Validated relationship identifier column for {k}")
+    return True
+
+def validateReferences(dfs, available_references, ontologyName: str, relationships_to_process: list) -> Tuple[pd.DataFrame, list]:
     """
-    For each relationship in relationships_to_process, check that all referenced entities exist in the subjects list
+    For each relationship in relationships_to_process, check that all referenced entities exist in the {relationship_ref_field} list
     :param dfs: dfs to validate
     :param subjects: list of valid subjects in the graph
     :param ontologyName: "Brick" or "Switch"
@@ -114,7 +125,7 @@ def validateReferences(dfs, subjects, ontologyName: str, relationships_to_proces
                 if not helpers.isReference(refs): continue
 
                 refs = [ref.strip() for ref in refs.split("|")]
-                bad_refs = [ref for ref in refs if ref not in subjects.values]
+                bad_refs = [ref for ref in refs if ref not in available_references.values]
                 if bad_refs:
                     # save bad subjects
                     bad_refs_sheet.extend(bad_refs)
