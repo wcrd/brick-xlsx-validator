@@ -1,0 +1,2784 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix dcterms: <http://purl.org/dc/terms#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix switch: <https://switchautomation.com/schemas/BrickExtension#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
+
+brick:hasUuid a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    skos:definition "A unique identifier associated with this entity" .
+
+switch: a owl:Ontology ;
+    rdfs:label "Brick-SwitchExtension" ;
+    dcterms:version "1.1.3" ;
+    skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
+
+switch:Active_Chilled_Beam a owl:Class ;
+    rdfs:label "Active Chilled Beam" ;
+    rdfs:subClassOf switch:Chilled_Beam ;
+    skos:definition "A Chilled Beam with an integral air supply that forces induction of the room air through the device" ;
+    brick:hasAssociatedTag tag:Active,
+        tag:Beam,
+        tag:Chilled .
+
+switch:Active_Energy_Delivered_Sensor a owl:Class ;
+    rdfs:label "Active Energy Delivered Sensor" ;
+    rdfs:subClassOf brick:Energy_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Active,
+        tag:Delivered,
+        tag:Energy,
+        tag:Sensor .
+
+switch:Active_Power_Phase_A_Sensor a owl:Class ;
+    rdfs:label "Active Power Phase A Sensor" ;
+    rdfs:subClassOf brick:Active_Power_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:A,
+        tag:Active,
+        tag:Phase,
+        tag:Power,
+        tag:Sensor .
+
+switch:Active_Power_Phase_B_Sensor a owl:Class ;
+    rdfs:label "Active Power Phase B Sensor" ;
+    rdfs:subClassOf brick:Active_Power_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Active,
+        tag:B,
+        tag:Phase,
+        tag:Power,
+        tag:Sensor .
+
+switch:Active_Power_Phase_C_Sensor a owl:Class ;
+    rdfs:label "Active Power Phase C Sensor" ;
+    rdfs:subClassOf brick:Active_Power_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Active,
+        tag:C,
+        tag:Phase,
+        tag:Power,
+        tag:Sensor .
+
+switch:After_Hours_Mode_Enable_Status a owl:Class ;
+    rdfs:label "After Hours Mode Enable Status" ;
+    rdfs:subClassOf brick:Enable_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:After,
+        tag:Enable,
+        tag:Hours,
+        tag:Mode,
+        tag:Status .
+
+switch:Air_Cooled_Chiller a owl:Class ;
+    rdfs:label "Air Cooled Chiller" ;
+    rdfs:subClassOf brick:Chiller ;
+    skos:definition "An air cooled chiller rejects the heat absorbed from the building or process directly to the outdoor air using refrigerant to air coils and fans that blow outdoor air directly over those coils" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Chiller,
+        tag:Cooled .
+
+switch:Air_Curtain a owl:Class ;
+    rdfs:label "Air Curtain" ;
+    rdfs:subClassOf brick:HVAC_Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Curtain .
+
+switch:Air_Distribution a owl:Class ;
+    rdfs:label "Air Distribution" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "Utilize an air distribution source to represent how forced air is distributed across multiple destinations (ducts, risers, plenums)" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Distribution .
+
+switch:Air_Separator a owl:Class ;
+    rdfs:label "Air Separator" ;
+    rdfs:subClassOf brick:HVAC_Equipment ;
+    skos:definition "Air separators are used to separate entrained air in water through forced flow patterns" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Separator .
+
+switch:Apparent_Power_Sensor a owl:Class ;
+    rdfs:label "Apparent Power Sensor" ;
+    rdfs:subClassOf brick:Power_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Apparent,
+        tag:Power,
+        tag:Sensor .
+
+switch:Automatic_Transfer_Switch a owl:Class ;
+    rdfs:label "Automation Transfer Switch (ATS)" ;
+    rdfs:subClassOf switch:Transfer_Switch ;
+    skos:definition "An automatic transfer switch (ATS) is a device that automatically transfers a power supply from its primary source to a backup source when it senses a failure or outage in the primary source" ;
+    brick:hasAssociatedTag tag:Automatic,
+        tag:Switch,
+        tag:Transfer .
+
+switch:Average_Zone_Air_CO2_Sensor a owl:Class ;
+    rdfs:label "Average Zone Air CO2 Sensor" ;
+    rdfs:subClassOf brick:CO2_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Average,
+        tag:CO2,
+        tag:Sensor,
+        tag:Zone .
+
+switch:CDW_Isolation_Valve_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. CDW Isolation Valve Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:CDW,
+        tag:Command,
+        tag:Isolation,
+        tag:Position,
+        tag:Valve .
+
+switch:Calorifier a owl:Class ;
+    rdfs:label "Calorifier" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Calorifier .
+
+switch:Chilled_Water_Bypass_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Bypass Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Bypass,
+        tag:Chilled,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Chilled_Water_Entering_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Entering Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Entering,
+        tag:Isolation,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Chilled_Water_Entering_Temperature_Sensor a owl:Class ;
+    rdfs:label "Chilled Water Entering Temperature Sensor" ;
+    rdfs:subClassOf brick:Chilled_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Entering,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Water .
+
+switch:Chilled_Water_Flow_Sensor a owl:Class ;
+    rdfs:label "Chilled Water Flow Sensor" ;
+    rdfs:subClassOf brick:Water_Flow_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Flow,
+        tag:Sensor,
+        tag:Water .
+
+switch:Chilled_Water_Isolation_Valve_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Isolation Valve Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Command,
+        tag:Isolation,
+        tag:Position,
+        tag:Valve,
+        tag:Water .
+
+switch:Chilled_Water_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Isolation,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Chilled_Water_Leaving_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Leaving Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Isolation,
+        tag:Leaving,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Chilled_Water_Leaving_Temperature_Sensor a owl:Class ;
+    rdfs:label "Chilled Water Leaving Temperature Sensor" ;
+    rdfs:subClassOf brick:Chilled_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Leaving,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Water .
+
+switch:Chilled_Water_Leaving_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Chilled Water Leaving Temperature Setpoint" ;
+    rdfs:subClassOf brick:Leaving_Water_Temperature_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Leaving,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
+
+switch:Chilled_Water_Pump_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Pump On Off Status" ;
+    rdfs:subClassOf brick:Pump_On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Off,
+        tag:On,
+        tag:Pump,
+        tag:Status,
+        tag:Water .
+
+switch:Chilled_Water_Valve_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Valve Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Command,
+        tag:Position,
+        tag:Valve,
+        tag:Water .
+
+switch:Chilled_Water_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Chilled Water Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Circuit a owl:Class ;
+    rdfs:label "Circuit" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "A path for transmitting electric current" ;
+    brick:hasAssociatedTag tag:Circuit .
+
+switch:Communication_Status a owl:Class ;
+    rdfs:label "Communication Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Communication,
+        tag:Status .
+
+switch:Compressor_Load_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Compressor Load Sensor" ;
+    rdfs:subClassOf switch:Load_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Compressor,
+        tag:Load,
+        tag:Sensor .
+
+switch:Compressor_On_Off_Status a owl:Class ;
+    rdfs:label "Compressor On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Compressor,
+        tag:Off,
+        tag:On,
+        tag:Status .
+
+switch:Compressor_Pump_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Compressor Pump On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Compressor,
+        tag:Off,
+        tag:On,
+        tag:Pump,
+        tag:Status .
+
+switch:Compressor_Refrigerant_Leaving_Temperature_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Compressor Refrigerant Leaving Temperature Sensor" ;
+    rdfs:subClassOf switch:Refrigerant_Leaving_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Compressor,
+        tag:Leaving,
+        tag:Refrigerant,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:Compressor_Run_Time_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Compressor Run Time Sensor" ;
+    rdfs:subClassOf brick:Run_Time_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Compressor,
+        tag:Run,
+        tag:Sensor,
+        tag:Time .
+
+switch:Compressor_Speed_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Compressor Speed Sensor" ;
+    rdfs:subClassOf switch:Speed_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Compressor,
+        tag:Sensor,
+        tag:Speed .
+
+switch:Condenser_Refrigerant_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Condenser Refrigerant Differential Pressure Sensor" ;
+    rdfs:subClassOf brick:Differential_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Differential,
+        tag:Pressure,
+        tag:Refrigerant,
+        tag:Sensor .
+
+switch:Condenser_Refrigerant_Leaving_Temperature_Sensor a owl:Class ;
+    rdfs:label "Condenser Refrigerant Leaving Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Leaving,
+        tag:Refrigerant,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:Condenser_Refrigerant_Pressure_Sensor a owl:Class ;
+    rdfs:label "Condenser Refrigerant Pressure Sensor" ;
+    rdfs:subClassOf brick:Static_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Pressure,
+        tag:Refrigerant,
+        tag:Sensor .
+
+switch:Condenser_Water_Bypass_Valve_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Bypass Valve Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Bypass,
+        tag:Command,
+        tag:Condenser,
+        tag:Position,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Bypass_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Bypass Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Bypass,
+        tag:Condenser,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Bypass_Valve_Position_Setpoint a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Bypass Valve Position Setpoint" ;
+    rdfs:subClassOf switch:Position_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Bypass,
+        tag:Condenser,
+        tag:Position,
+        tag:Setpoint,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Condenser Water Differential Pressure Sensor" ;
+    rdfs:subClassOf brick:Differential_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Differential,
+        tag:Pressure,
+        tag:Sensor,
+        tag:Water .
+
+switch:Condenser_Water_Differential_Pressure_Setpoint a owl:Class ;
+    rdfs:label "Condenser Water Differential Pressure Setpoint" ;
+    rdfs:subClassOf brick:Differential_Pressure_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Differential,
+        tag:Pressure,
+        tag:Setpoint,
+        tag:Water .
+
+switch:Condenser_Water_Entering_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Entering Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Entering,
+        tag:Isolation,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Entering_Isolation_Valve_Position_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Entering Isolation Valve Position Status" ;
+    rdfs:subClassOf switch:Position_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Entering,
+        tag:Isolation,
+        tag:Position,
+        tag:Status,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Entering_Temperature_Sensor a owl:Class ;
+    rdfs:label "Condenser Water Entering Temperature Sensor" ;
+    rdfs:subClassOf brick:Entering_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Entering,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Water .
+
+switch:Condenser_Water_Flow_Sensor a owl:Class ;
+    rdfs:label "Condenser Water Flow Sensor" ;
+    rdfs:subClassOf brick:Water_Flow_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Flow,
+        tag:Sensor,
+        tag:Water .
+
+switch:Condenser_Water_Flow_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Flow Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Flow,
+        tag:Status,
+        tag:Water .
+
+switch:Condenser_Water_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Isolation,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Leaving_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Leaving Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Isolation,
+        tag:Leaving,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Leaving_Isolation_Valve_Position_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Leaving Isolation Valve Position Status" ;
+    rdfs:subClassOf switch:Position_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Isolation,
+        tag:Leaving,
+        tag:Position,
+        tag:Status,
+        tag:Valve,
+        tag:Water .
+
+switch:Condenser_Water_Leaving_Temperature_Sensor a owl:Class ;
+    rdfs:label "Condenser Water Leaving Temperature Sensor" ;
+    rdfs:subClassOf brick:Leaving_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Leaving,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Water .
+
+switch:Condenser_Water_Meter a owl:Class ;
+    rdfs:label "Condenser Water Meter" ;
+    rdfs:subClassOf brick:Water_Meter ;
+    skos:definition "A meter that measures the usage or consumption of condenser water" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Meter,
+        tag:Water .
+
+switch:Condenser_Water_Pump_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Condenser Water Pump On Off Status" ;
+    rdfs:subClassOf brick:Pump_On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Off,
+        tag:On,
+        tag:Pump,
+        tag:Status,
+        tag:Water .
+
+switch:Condenser_Water_System a owl:Class ;
+    rdfs:label "Condenser Water System" ;
+    rdfs:subClassOf brick:System ;
+    skos:definition "The equipment, devices and conduits that handle the production and distribution of condenser water in a building" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:System,
+        tag:Water .
+
+switch:Cooling_Call_Count_Status a owl:Class ;
+    rdfs:label "Cooling Call Count Status" ;
+    rdfs:subClassOf switch:Count_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Cooling,
+        tag:Count,
+        tag:Status .
+
+switch:Cooling_Call_Enable_Status a owl:Class ;
+    rdfs:label "Cooling Call Enable Status" ;
+    rdfs:subClassOf brick:Enable_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Cooling,
+        tag:Enable,
+        tag:Status .
+
+switch:Cooling_Call_Request_Status a owl:Class ;
+    rdfs:label "Cooling Call Request Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Cooling,
+        tag:Request,
+        tag:Status .
+
+switch:Cooling_Call_Status a owl:Class ;
+    rdfs:label "Cooling Call Status" ;
+    rdfs:subClassOf switch:Request_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Cooling,
+        tag:Status .
+
+switch:Cooling_Load_Sensor a owl:Class ;
+    rdfs:label "Cooling Load Sensor" ;
+    rdfs:subClassOf switch:Load_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Cooling,
+        tag:Load,
+        tag:Sensor .
+
+switch:Cooling_Stage_Enable_Command a owl:Class ;
+    rdfs:label "Cooling Stage Enable Command" ;
+    rdfs:subClassOf brick:Stage_Enable_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Cooling,
+        tag:Enable,
+        tag:Stage .
+
+switch:Cooling_Tower a owl:Class ;
+    rdfs:label "Cooling Tower" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Cooling,
+        tag:Tower .
+
+switch:Coupon_Rack a owl:Class ;
+    rdfs:label "Coupon Rack" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Coupon,
+        tag:Rack .
+
+switch:Current_Phase_A_Sensor a owl:Class ;
+    rdfs:label "Current Phase A Sensor" ;
+    rdfs:subClassOf brick:Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:A,
+        tag:Current,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Current_Phase_B_Sensor a owl:Class ;
+    rdfs:label "Current Phase B Sensor" ;
+    rdfs:subClassOf brick:Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:B,
+        tag:Current,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Current_Phase_C_Sensor a owl:Class ;
+    rdfs:label "Current Phase C Sensor" ;
+    rdfs:subClassOf brick:Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:C,
+        tag:Current,
+        tag:Phase,
+        tag:Sensor .
+
+switch:DHW_Pump_Run_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. DHW Pump Run Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:DHW,
+        tag:Pump,
+        tag:Run .
+
+switch:Damper_Open_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Damper Open Command" ;
+    rdfs:subClassOf brick:Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Damper,
+        tag:Open .
+
+switch:Dehumidification_Call_Enable_Status a owl:Class ;
+    rdfs:label "Dehumidification Call Enable Status" ;
+    rdfs:subClassOf brick:Enable_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Dehumidification,
+        tag:Enable,
+        tag:Status .
+
+switch:Dehumidification_Command a owl:Class ;
+    rdfs:label "Dehumidification Command" ;
+    rdfs:subClassOf brick:Cooling_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Dehumidification .
+
+switch:Dehumidification_On_Off_Command a owl:Class ;
+    rdfs:label "Dehumidification On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Dehumidification,
+        tag:Off,
+        tag:On .
+
+switch:Discharge_Air_Damper_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Damper Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Damper,
+        tag:Discharge,
+        tag:Position .
+
+switch:Discharge_Air_Damper_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Damper Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Damper,
+        tag:Discharge,
+        tag:Position,
+        tag:Sensor .
+
+switch:Discharge_Air_Enthalpy_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Enthalpy Sensor" ;
+    rdfs:subClassOf brick:Air_Enthalpy_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Enthalpy,
+        tag:Sensor .
+
+switch:Discharge_Air_Fan_Fault_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Fan Fault Status" ;
+    rdfs:subClassOf brick:Fault_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Fault,
+        tag:Status .
+
+switch:Discharge_Air_Fan_Min_Speed_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Fan Min Speed Setpoint" ;
+    rdfs:subClassOf switch:Min_Speed_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Min,
+        tag:Setpoint,
+        tag:Speed .
+
+switch:Discharge_Air_Fan_On_Off_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Fan On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Discharge,
+        tag:Fan,
+        tag:Off,
+        tag:On .
+
+switch:Discharge_Air_Fan_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Fan On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Off,
+        tag:On,
+        tag:Status .
+
+switch:Discharge_Air_Fan_Output_Frequency_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Fan Output Frequency Status" ;
+    rdfs:subClassOf brick:Output_Frequency_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Frequency,
+        tag:Output,
+        tag:Status .
+
+switch:Discharge_Air_Fan_Overridden_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Fan Overridden Status" ;
+    rdfs:subClassOf brick:Overridden_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Overridden,
+        tag:Status .
+
+switch:Discharge_Air_Fan_Speed_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Fan Speed Sensor" ;
+    rdfs:subClassOf switch:Speed_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Sensor,
+        tag:Speed .
+
+switch:Discharge_Air_Humidity_Setpoint a owl:Class ;
+    rdfs:label "Discharge Air Humidity Setpoint" ;
+    rdfs:subClassOf brick:Humidity_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Humidity,
+        tag:Setpoint .
+
+switch:Discharge_Air_Velocity_Sensor a owl:Class ;
+    rdfs:label "Discharge Air Velocity Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Sensor,
+        tag:Velocity .
+
+switch:Domestic_Cold_Water_System a owl:Class ;
+    rdfs:label "Domestic Cold Water System" ;
+    rdfs:subClassOf brick:System ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Cold,
+        tag:Domestic,
+        tag:System,
+        tag:Water .
+
+switch:Domestic_Hot_Water_Heater a owl:Class ;
+    rdfs:label "Domestic Hot Water (DHW) Heater" ;
+    rdfs:subClassOf brick:Water_Heater ;
+    skos:definition "Boiler for domestic hot water" ;
+    brick:hasAssociatedTag tag:Domestic,
+        tag:Heater,
+        tag:Hot,
+        tag:Water .
+
+switch:Drain_Pan_Alarm a owl:Class ;
+    rdfs:label "Drain Pan Alarm" ;
+    rdfs:subClassOf brick:Alarm ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Alarm,
+        tag:Drain,
+        tag:Pan .
+
+switch:EV_Charger a owl:Class ;
+    rdfs:label "EV Charger" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "Electric Vehicle charging unit" ;
+    brick:hasAssociatedTag tag:Charger,
+        tag:EV .
+
+switch:EconCycle_Mode_Status a owl:Class ;
+    rdfs:label "EconCycle Mode Status" ;
+    rdfs:subClassOf brick:Mode_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:EconCycle,
+        tag:Mode,
+        tag:Status .
+
+switch:EconCycle_On_Off_Command a owl:Class ;
+    rdfs:label "EconCycle On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:EconCycle,
+        tag:Off,
+        tag:On .
+
+switch:Economizer_Damper_Position a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Economizer Damper Position" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Damper,
+        tag:Economizer,
+        tag:Position .
+
+switch:Effective_Zone_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "Effective Zone Air Temperature Cooling Setpoint" ;
+    rdfs:subClassOf brick:Effective_Air_Temperature_Cooling_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Cooling,
+        tag:Effective,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Effective_Zone_Air_Temperature_Cooling_Setpoint_Adjust a owl:Class ;
+    rdfs:label "Effective Zone Air Temperature Cooling Setpoint Adjust" ;
+    rdfs:subClassOf brick:Adjust_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Adjust,
+        tag:Air,
+        tag:Cooling,
+        tag:Effective,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Effective_Zone_Air_Temperature_Heating_Setpoint a owl:Class ;
+    rdfs:label "Effective Zone Air Temperature Heating Setpoint" ;
+    rdfs:subClassOf brick:Effective_Air_Temperature_Heating_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Effective,
+        tag:Heating,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Effective_Zone_Air_Temperature_Heating_Setpoint_Adjust a owl:Class ;
+    rdfs:label "Effective Zone Air Temperature Heating Setpoint Adjust" ;
+    rdfs:subClassOf brick:Adjust_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Adjust,
+        tag:Air,
+        tag:Effective,
+        tag:Heating,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Electrostatic_Precipitator a owl:Class ;
+    rdfs:label "Electrostatic Precipitator (ESP)" ;
+    rdfs:subClassOf brick:HVAC_Equipment ;
+    skos:definition "An electrostatic precipitator (ESP) is a filterless device that removes fine particles, like dust and smoke, from a flowing gas using the force of an induced electrostatic charge minimally impeding the flow of gases through the unit" ;
+    brick:hasAssociatedTag tag:Electrostatic,
+        tag:Precipitator .
+
+switch:Emergency_Mode_Enable_Status a owl:Class ;
+    rdfs:label "Emergency Mode Enable Status" ;
+    rdfs:subClassOf brick:Enable_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Emergency,
+        tag:Enable,
+        tag:Mode,
+        tag:Status .
+
+switch:Entering_Air_Damper_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Entering Air Damper Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Damper,
+        tag:Entering,
+        tag:Position,
+        tag:Sensor .
+
+switch:Entering_Air_Flow_Sensor a owl:Class ;
+    rdfs:label "Entering Air Flow Sensor" ;
+    rdfs:subClassOf brick:Air_Flow_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Entering,
+        tag:Flow,
+        tag:Sensor .
+
+switch:Escalator a owl:Class ;
+    rdfs:label "Escalator" ;
+    rdfs:subClassOf switch:Vertical_Transport ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Escalator .
+
+switch:Evaporator_Refrigerant_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Evaporator Refrigerant Differential Pressure Sensor" ;
+    rdfs:subClassOf brick:Differential_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Differential,
+        tag:Evaporator,
+        tag:Pressure,
+        tag:Refrigerant,
+        tag:Sensor .
+
+switch:Evaporator_Refrigerant_Entering_Temperature_Sensor a owl:Class ;
+    rdfs:label "Evaporator Refrigerant Entering Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Entering,
+        tag:Evaporator,
+        tag:Refrigerant,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:Evaporator_Refrigerant_Pressure_Sensor a owl:Class ;
+    rdfs:label "Evaporator Refrigerant Pressure Sensor" ;
+    rdfs:subClassOf brick:Static_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Evaporator,
+        tag:Pressure,
+        tag:Refrigerant,
+        tag:Sensor .
+
+switch:Evaporator_Refrigerant_Saturation_Temperature_Sensor a owl:Class ;
+    rdfs:label "Evaporator Refrigerant Saturation Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Evaporator,
+        tag:Refrigerant,
+        tag:Saturation,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:Evaporator_Refrigerant_Triple_Point_Temperature_Sensor a owl:Class ;
+    rdfs:label "Evaporator Refrigerant Triple Point Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Evaporator,
+        tag:Point,
+        tag:Refrigerant,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Triple .
+
+switch:Exhaust_Air_Damper_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Exhaust Air Damper Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Damper,
+        tag:Exhaust,
+        tag:Position .
+
+switch:Exhaust_Air_Damper_Position_Setpoint a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Exhaust Air Damper Position Setpoint" ;
+    rdfs:subClassOf switch:Position_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Damper,
+        tag:Exhaust,
+        tag:Position,
+        tag:Setpoint .
+
+switch:Exhaust_Air_Fan_Fault_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Exhaust Air Fan Fault Status" ;
+    rdfs:subClassOf brick:Fault_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Exhaust,
+        tag:Fan,
+        tag:Fault,
+        tag:Status .
+
+switch:Exhaust_Air_Fan_On_Off_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Exhaust Air Fan On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Exhaust,
+        tag:Fan,
+        tag:Off,
+        tag:On .
+
+switch:Exhaust_Air_Fan_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Exhaust Air Fan On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Exhaust,
+        tag:Fan,
+        tag:Off,
+        tag:On,
+        tag:Status .
+
+switch:Exhaust_Air_Fan_Speed_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Exhaust Air Fan Speed Sensor" ;
+    rdfs:subClassOf brick:Speed_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Exhaust,
+        tag:Fan,
+        tag:Sensor,
+        tag:Speed .
+
+switch:Fan_On_Off_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Fan On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Fan,
+        tag:Off,
+        tag:On .
+
+switch:Fan_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Fan On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Fan,
+        tag:Off,
+        tag:On,
+        tag:Status .
+
+switch:Fan_Speed_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Fan Speed Sensor" ;
+    rdfs:subClassOf switch:Speed_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Fan,
+        tag:Sensor,
+        tag:Speed .
+
+switch:Filter_Differential_Pressure_Alarm a owl:Class ;
+    rdfs:label "Filter Differential Pressure Alarm" ;
+    rdfs:subClassOf brick:Pressure_Alarm ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Alarm,
+        tag:Differential,
+        tag:Filter,
+        tag:Pressure .
+
+switch:Generator a owl:Class ;
+    rdfs:label "Generator" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Generator .
+
+switch:Heating_Call_Count_Status a owl:Class ;
+    rdfs:label "Heating Call Count Status" ;
+    rdfs:subClassOf switch:Count_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Count,
+        tag:Heating,
+        tag:Status .
+
+switch:Heating_Call_Request_Status a owl:Class ;
+    rdfs:label "Heating Call Request Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Heating,
+        tag:Request,
+        tag:Status .
+
+switch:Heating_Call_Status a owl:Class ;
+    rdfs:label "Heating Call Status" ;
+    rdfs:subClassOf switch:Request_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Heating,
+        tag:Status .
+
+switch:Heating_Enable_Command a owl:Class ;
+    rdfs:label "Heating Enable Command" ;
+    rdfs:subClassOf brick:Enable_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Enable,
+        tag:Heating .
+
+switch:Heating_Load_Sensor a owl:Class ;
+    rdfs:label "Heating Load Sensor" ;
+    rdfs:subClassOf switch:Load_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Heating,
+        tag:Load,
+        tag:Sensor .
+
+switch:Heating_Stage_Enable_Command a owl:Class ;
+    rdfs:label "Heating Stage Enable Command" ;
+    rdfs:subClassOf brick:Stage_Enable_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Enable,
+        tag:Heating,
+        tag:Stage .
+
+switch:High_DHW_Leaving_Temperature_Alarm a owl:Class ;
+    rdfs:label "High DHW Leaving Temperature Alarm" ;
+    rdfs:subClassOf brick:High_Temperature_Alarm ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Alarm,
+        tag:DHW,
+        tag:High,
+        tag:Leaving,
+        tag:Temperature .
+
+switch:High_Limit_Load_Parameter a owl:Class ;
+    rdfs:label "High Limit Load Parameter" ;
+    rdfs:subClassOf brick:Load_Parameter ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:High,
+        tag:Limit,
+        tag:Load,
+        tag:Parameter .
+
+switch:High_Limit_Zone_Air_Humidity_Setpoint_Parameter a owl:Class ;
+    rdfs:label "High Limit Zone Air Humidity Setpoint Parameter" ;
+    rdfs:subClassOf brick:Limit ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:High,
+        tag:Humidity,
+        tag:Limit,
+        tag:Parameter,
+        tag:Setpoint,
+        tag:Zone .
+
+switch:High_Zone_Air_Temperature_Alarm a owl:Class ;
+    rdfs:label "High Zone Air Temperature Alarm" ;
+    rdfs:subClassOf brick:High_Temperature_Alarm ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Alarm,
+        tag:High,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Hot_Water_Isolation_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Hot Water Isolation Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Hot,
+        tag:Isolation,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:Hot_Water_Valve_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Hot Water Valve Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Hot,
+        tag:Position,
+        tag:Valve,
+        tag:Water .
+
+switch:Hot_Water_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Hot Water Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Hot,
+        tag:Position,
+        tag:Sensor,
+        tag:Valve,
+        tag:Water .
+
+switch:IAQ_Sensor_Equipment a owl:Class ;
+    rdfs:label "IAQ Sensor" ;
+    rdfs:subClassOf switch:Zone_Sensor_Equipment ;
+    skos:definition "Indoor Air Quality (IAQ) sensor array. May include temperature, humidity, TVOC, CO2, CO sensor points and more." ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:IAQ,
+        tag:Sensor .
+
+switch:Isolation_Valve_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Isolation Valve Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Isolation,
+        tag:Position,
+        tag:Valve .
+
+switch:Kitchen_Exhaust_Fan a owl:Class ;
+    rdfs:label "Kitchen Exhaust Fan" ;
+    rdfs:subClassOf brick:Exhaust_Fan ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Exhaust,
+        tag:Fan,
+        tag:Kitchen .
+
+switch:Leaving_Chilled_Water_Flow_Setpoint a owl:Class ;
+    rdfs:label "Leaving Chilled Water Flow Setpoint" ;
+    rdfs:subClassOf switch:Water_Flow_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Flow,
+        tag:Leaving,
+        tag:Setpoint,
+        tag:Water .
+
+switch:Leaving_Condenser_Water_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Leaving Condenser Water Temperature Setpoint" ;
+    rdfs:subClassOf brick:Leaving_Water_Temperature_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Condenser,
+        tag:Leaving,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Water .
+
+switch:Line_Current_Load_Sensor a owl:Class ;
+    rdfs:label "Line Current Load Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Current,
+        tag:Line,
+        tag:Load,
+        tag:Sensor .
+
+switch:Line_Voltage_Sensor a owl:Class ;
+    rdfs:label "Line Voltage Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Line,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Liquid_Refrigerant a owl:Class ;
+    rdfs:label "Liquid Phase Refrigerant" ;
+    rdfs:subClassOf brick:Fluid ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Liquid,
+        tag:Refrigerant .
+
+switch:Low_DHW_Leaving_Temperature_Alarm a owl:Class ;
+    rdfs:label "Low DHW Leaving Temperature Alarm" ;
+    rdfs:subClassOf brick:Low_Temperature_Alarm ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Alarm,
+        tag:DHW,
+        tag:Leaving,
+        tag:Low,
+        tag:Temperature .
+
+switch:Low_Limit_Zone_Air_Humidity_Setpoint_Parameter a owl:Class ;
+    rdfs:label "Low Limit Zone Air Humidity Setpoint Parameter" ;
+    rdfs:subClassOf brick:Limit ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Humidity,
+        tag:Limit,
+        tag:Low,
+        tag:Parameter,
+        tag:Setpoint,
+        tag:Zone .
+
+switch:Low_Zone_Air_Temperature_Alarm a owl:Class ;
+    rdfs:label "Low Zone Air Temperature Alarm" ;
+    rdfs:subClassOf brick:Low_Temperature_Alarm ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Alarm,
+        tag:Low,
+        tag:Temperature,
+        tag:Zone .
+
+switch:MAU a owl:Class ;
+    rdfs:label "MAU" ;
+    rdfs:subClassOf switch:DOAS ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:MAU .
+
+switch:Makeup_Water_Velocity_Sensor a owl:Class ;
+    rdfs:label "Makeup Water Velocity Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Makeup,
+        tag:Sensor,
+        tag:Velocity,
+        tag:Water .
+
+switch:Max_Chilled_Water_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Max Chilled Water Flow Setpoint Limit" ;
+    rdfs:subClassOf brick:Max_Limit ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Flow,
+        tag:Limit,
+        tag:Max,
+        tag:Setpoint,
+        tag:Water .
+
+switch:Max_Damper_Position_Setpoint a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Max Damper Position Setpoint" ;
+    rdfs:subClassOf switch:Position_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Damper,
+        tag:Max,
+        tag:Position,
+        tag:Setpoint .
+
+switch:Max_Zone_Air_CO2_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Max Zone Air CO2 Sensor" ;
+    rdfs:subClassOf brick:CO2_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:CO2,
+        tag:Max,
+        tag:Sensor,
+        tag:Zone .
+
+switch:Max_Zone_Air_Humidity_Setpoint a owl:Class ;
+    rdfs:label "Max Zone Air Humidity Setpoint" ;
+    rdfs:subClassOf brick:Air_Humidity_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Humidity,
+        tag:Max,
+        tag:Setpoint,
+        tag:Zone .
+
+switch:Min_Chilled_Water_Flow_Setpoint_Limit a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Min Chilled Water Flow Setpoint Limit" ;
+    rdfs:subClassOf brick:Min_Limit ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Chilled,
+        tag:Flow,
+        tag:Limit,
+        tag:Min,
+        tag:Setpoint,
+        tag:Water .
+
+switch:Min_Discharge_Air_Fan_Speed_Setpoint a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Min Discharge Air Fan Speed Setpoint" ;
+    rdfs:subClassOf brick:Speed_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Discharge,
+        tag:Fan,
+        tag:Min,
+        tag:Setpoint,
+        tag:Speed .
+
+switch:Min_Zone_Air_Humidity_Setpoint a owl:Class ;
+    rdfs:label "Min Zone Air Humidity Setpoint" ;
+    rdfs:subClassOf brick:Air_Humidity_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Humidity,
+        tag:Min,
+        tag:Setpoint,
+        tag:Zone .
+
+switch:Mixed_Air_Fan_Fault_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Mixed Air Fan Fault Status" ;
+    rdfs:subClassOf brick:Fault_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fan,
+        tag:Fault,
+        tag:Mixed,
+        tag:Status .
+
+switch:Mixed_Air_Fan_On_Off_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Mixed Air Fan On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Fan,
+        tag:Mixed,
+        tag:Off,
+        tag:On .
+
+switch:Mixed_Air_Fan_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Mixed Air Fan On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fan,
+        tag:Mixed,
+        tag:Off,
+        tag:On,
+        tag:Status .
+
+switch:Mixed_Air_Fan_Overridden_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Mixed Air Fan Overridden Status" ;
+    rdfs:subClassOf brick:Overridden_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Fan,
+        tag:Mixed,
+        tag:Overridden,
+        tag:Status .
+
+switch:Moving_Walkway a owl:Class ;
+    rdfs:label "Moving Walkway" ;
+    rdfs:subClassOf switch:Vertical_Transport ;
+    skos:definition "Horizontal or inclined moving walkway" ;
+    brick:hasAssociatedTag tag:Moving,
+        tag:Walkway .
+
+switch:Night_Setback_Command a owl:Class ;
+    rdfs:label "Night Setback Command" ;
+    rdfs:subClassOf brick:Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Night,
+        tag:Setback .
+
+switch:Occupancy_Sensor_Equipment a owl:Class ;
+    rdfs:label "Occupancy Sensor" ;
+    rdfs:subClassOf switch:Zone_Sensor_Equipment ;
+    skos:definition "Senses occupancy status of a space: occupied or not occupied." ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Occupancy,
+        tag:Sensor .
+
+switch:Occupied_Discharge_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "Occupied Discharge Air Temperature Cooling Setpoint" ;
+    rdfs:subClassOf brick:Discharge_Air_Temperature_Cooling_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Cooling,
+        tag:Discharge,
+        tag:Occupied,
+        tag:Setpoint,
+        tag:Temperature .
+
+switch:Occupied_Zone_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "Occupied Zone Air Temperature Cooling Setpoint" ;
+    rdfs:subClassOf brick:Cooling_Temperature_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Cooling,
+        tag:Occupied,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Occupied_Zone_Air_Temperature_Heating_Setpoint a owl:Class ;
+    rdfs:label "Occupied Zone Air Temperature Heating Setpoint" ;
+    rdfs:subClassOf brick:Heating_Temperature_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Heating,
+        tag:Occupied,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Zone .
+
+switch:Oil_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Oil Differential Pressure Sensor" ;
+    rdfs:subClassOf brick:Differential_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Differential,
+        tag:Oil,
+        tag:Pressure,
+        tag:Sensor .
+
+switch:Oil_Heater_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Oil Heater On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Heater,
+        tag:Off,
+        tag:Oil,
+        tag:On,
+        tag:Status .
+
+switch:Oil_Pump_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Oil Pump On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Off,
+        tag:Oil,
+        tag:On,
+        tag:Pump,
+        tag:Status .
+
+switch:Oil_Temperature_Sensor a owl:Class ;
+    rdfs:label "Oil Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Oil,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:Optimum_Start_Enable_Status a owl:Class ;
+    rdfs:label "Optimum Start Enable Status" ;
+    rdfs:subClassOf brick:Enable_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Enable,
+        tag:Optimum,
+        tag:Start,
+        tag:Status .
+
+switch:Outside_Air_Damper_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Outside Air Damper Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Damper,
+        tag:Outside,
+        tag:Position .
+
+switch:Outside_Air_Damper_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Outside Air Damper Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Damper,
+        tag:Outside,
+        tag:Position,
+        tag:Sensor .
+
+switch:Outside_Air_Damper_Position_Setpoint a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Outside Air Damper Position Setpoint" ;
+    rdfs:subClassOf switch:Position_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Damper,
+        tag:Outside,
+        tag:Position,
+        tag:Setpoint .
+
+switch:Outside_Air_Enthalpy_Sensor a owl:Class ;
+    rdfs:label "Outside Air Enthalpy Sensor" ;
+    rdfs:subClassOf brick:Air_Enthalpy_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Enthalpy,
+        tag:Outside,
+        tag:Sensor .
+
+switch:Outside_Air_Fan_On_Off_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Outside Air Fan On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Fan,
+        tag:Off,
+        tag:On,
+        tag:Outside .
+
+switch:Outside_Air_Filter_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Outside Air Filter Differential Pressure Sensor" ;
+    rdfs:subClassOf brick:Filter_Differential_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Differential,
+        tag:Filter,
+        tag:Outside,
+        tag:Pressure,
+        tag:Sensor .
+
+switch:Outside_Air_Filter_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Outside Air Filter Status" ;
+    rdfs:subClassOf brick:Filter_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Filter,
+        tag:Outside,
+        tag:Status .
+
+switch:Outside_Air_Lockout_Enthalpy_Setpoint a owl:Class ;
+    rdfs:label "Outside Air Lockout Enthalpy Setpoint" ;
+    rdfs:subClassOf brick:Enthalpy_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Enthalpy,
+        tag:Lockout,
+        tag:Outside,
+        tag:Setpoint .
+
+switch:Outside_Air_Wetbulb_Temperature_Sensor a owl:Class ;
+    rdfs:label "Outside Air Wetbulb Temperature Sensor" ;
+    rdfs:subClassOf brick:Outside_Air_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Outside,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Wetbulb .
+
+switch:Outside_Fan a owl:Class ;
+    rdfs:label "Outside Fan" ;
+    rdfs:subClassOf brick:Fan ;
+    owl:equivalentClass brick:Fresh_Air_Fan ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Fan,
+        tag:Outside .
+
+switch:Passive_Chilled_Beam a owl:Class ;
+    rdfs:label "Passive Chilled Beam" ;
+    rdfs:subClassOf switch:Chilled_Beam ;
+    skos:definition "A Chilled Beam that does not have an integral air supply" ;
+    brick:hasAssociatedTag tag:Beam,
+        tag:Chilled,
+        tag:Passive .
+
+switch:Phase_Voltage_Sensor a owl:Class ;
+    rdfs:label "Phase Voltage Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Power_Factor_Sensor a owl:Class ;
+    rdfs:label "Power Factor Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Factor,
+        tag:Power,
+        tag:Sensor .
+
+switch:Preheating_Command a owl:Class ;
+    rdfs:label "Preheating Command" ;
+    rdfs:subClassOf brick:Heating_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Preheating .
+
+switch:Primary_Side_Leaving_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "Primary Side Leaving Water Temperature Sensor" ;
+    rdfs:subClassOf brick:Leaving_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Leaving,
+        tag:Primary,
+        tag:Sensor,
+        tag:Side,
+        tag:Temperature,
+        tag:Water .
+
+switch:Radon_Level_Sensor a owl:Class ;
+    rdfs:label "Radon Level Sensor" ;
+    rdfs:subClassOf switch:Radon_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Radon,
+        tag:Sensor .
+
+switch:Rain_Water_System a owl:Class ;
+    rdfs:label "Rain Water System" ;
+    rdfs:subClassOf brick:System ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Rain,
+        tag:System,
+        tag:Water .
+
+switch:Reheat_HHW_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Reheat HHW Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:HHW,
+        tag:Position,
+        tag:Reheat,
+        tag:Sensor,
+        tag:Valve .
+
+switch:Return_Air_Damper_Position_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Return Air Damper Position Command" ;
+    rdfs:subClassOf brick:Position_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Command,
+        tag:Damper,
+        tag:Position,
+        tag:Return .
+
+switch:Return_Air_Damper_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Return Air Damper Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Damper,
+        tag:Position,
+        tag:Return,
+        tag:Sensor .
+
+switch:Return_Air_Filter_Differential_Pressure_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Return Air Filter Differential Pressure Sensor" ;
+    rdfs:subClassOf brick:Filter_Differential_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Differential,
+        tag:Filter,
+        tag:Pressure,
+        tag:Return,
+        tag:Sensor .
+
+switch:Return_Air_Filter_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Return Air Filter Status" ;
+    rdfs:subClassOf brick:Filter_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Filter,
+        tag:Return,
+        tag:Status .
+
+switch:Return_Loop a owl:Class ;
+    rdfs:label "Return Loop" ;
+    rdfs:subClassOf brick:Water_Distribution ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Loop,
+        tag:Return .
+
+switch:Reversing_Valve a owl:Class ;
+    rdfs:label "Reversing Valve" ;
+    rdfs:subClassOf brick:Valve ;
+    skos:definition "Valve to reverse heat pump operation from heating to cooling" ;
+    brick:hasAssociatedTag tag:Reversing,
+        tag:Valve .
+
+switch:Reversing_Valve_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Reversing Valve Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Reversing,
+        tag:Status,
+        tag:Valve .
+
+switch:Secondary_Side_Entering_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "Secondary Side Entering Water Temperature Sensor" ;
+    rdfs:subClassOf brick:Entering_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Entering,
+        tag:Secondary,
+        tag:Sensor,
+        tag:Side,
+        tag:Temperature,
+        tag:Water .
+
+switch:Secondary_Side_Leaving_Water_Temperature_Sensor a owl:Class ;
+    rdfs:label "Secondary Side Leaving Water Temperature Sensor" ;
+    rdfs:subClassOf brick:Leaving_Water_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Leaving,
+        tag:Secondary,
+        tag:Sensor,
+        tag:Side,
+        tag:Temperature,
+        tag:Water .
+
+switch:Sewerage_System a owl:Class ;
+    rdfs:label "Sewerage System" ;
+    rdfs:subClassOf brick:System ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sewerage,
+        tag:System .
+
+switch:Shunt_Trip_Status a owl:Class ;
+    rdfs:label "Shunt Trip Status" ;
+    rdfs:subClassOf brick:Emergency_Power_Off_System_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Shunt,
+        tag:Status,
+        tag:Trip .
+
+switch:Smoke_Exhaust_Fan a owl:Class ;
+    rdfs:label "Smoke Exhaust Fan" ;
+    rdfs:subClassOf brick:Exhaust_Fan ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Exhaust,
+        tag:Fan,
+        tag:Smoke .
+
+switch:Staging_Valve_Position_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Staging Valve Position Sensor" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Position,
+        tag:Sensor,
+        tag:Staging,
+        tag:Valve .
+
+switch:Stair_Pressurization_Fan a owl:Class ;
+    rdfs:label "Stair Pressurization Fan" ;
+    rdfs:subClassOf brick:Fan ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Fan,
+        tag:Pressurization,
+        tag:Stair .
+
+switch:Static_Transfer_Switch a owl:Class ;
+    rdfs:label "Static Transfer Switch (STS)" ;
+    rdfs:subClassOf switch:Transfer_Switch ;
+    skos:definition "Similar to ATS, but utilises no moving parts in the switch to achieve much faster response times" ;
+    brick:hasAssociatedTag tag:Static,
+        tag:Switch,
+        tag:Transfer .
+
+switch:Supply_Loop a owl:Class ;
+    rdfs:label "Supply Loop" ;
+    rdfs:subClassOf brick:Water_Distribution ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Loop,
+        tag:Supply .
+
+switch:Sweeper_Valve a owl:Class ;
+    rdfs:label "Sweeper Valve" ;
+    rdfs:subClassOf brick:Water_Valve ;
+    skos:definition "Valve found in Cooling Towers that controls water for basin cleaning" ;
+    brick:hasAssociatedTag tag:Sweeper,
+        tag:Valve .
+
+switch:Switchboard a owl:Class ;
+    rdfs:label "Switchboard" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "The role of a switchboard is to allow the division of the current supplied to the switchboard into smaller currents for further distribution and to provide switching, current protection and (possibly) metering for those various currents. In general, switchboards may distribute power to transformers, panelboards, control equipment, and, ultimately, to individual system loads." ;
+    brick:hasAssociatedTag tag:Switchboard .
+
+switch:Tank a owl:Class ;
+    rdfs:label "Tank" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "A large receptacle or storage chamber, especially for liquid or gas" ;
+    brick:hasAssociatedTag tag:Tank .
+
+switch:Toilet_Exhaust_Fan a owl:Class ;
+    rdfs:label "Toilet Exhaust Fan" ;
+    rdfs:subClassOf brick:Exhaust_Fan ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Exhaust,
+        tag:Fan,
+        tag:Toilet .
+
+switch:UPS a owl:Class ;
+    rdfs:label "UPS" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "Uninteruptible Power Supply" ;
+    brick:hasAssociatedTag tag:UPS .
+
+switch:Unoccupied_Zone_Air_Temperature_Cooling_Setpoint a owl:Class ;
+    rdfs:label "Unoccupied Zone Air Temperature Cooling Setpoint" ;
+    rdfs:subClassOf brick:Unoccupied_Air_Temperature_Cooling_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Cooling,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Unoccupied,
+        tag:Zone .
+
+switch:Unoccupied_Zone_Air_Temperature_Heating_Setpoint a owl:Class ;
+    rdfs:label "Unoccupied Zone Air Temperature Heating Setpoint" ;
+    rdfs:subClassOf brick:Unoccupied_Air_Temperature_Heating_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Heating,
+        tag:Setpoint,
+        tag:Temperature,
+        tag:Unoccupied,
+        tag:Zone .
+
+switch:VFD_Active_Power_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Active Power Sensor" ;
+    rdfs:subClassOf brick:Active_Power_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Active,
+        tag:Power,
+        tag:Sensor,
+        tag:VFD .
+
+switch:VFD_Cold_Plate_Temperature_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Cold Plate Temperature Sensor" ;
+    rdfs:subClassOf switch:Cold_Plate_Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Cold,
+        tag:Plate,
+        tag:Sensor,
+        tag:Temperature,
+        tag:VFD .
+
+switch:VFD_Fault_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Fault Status" ;
+    rdfs:subClassOf brick:Fault_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Fault,
+        tag:Status,
+        tag:VFD .
+
+switch:VFD_On_Off_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD On Off Command" ;
+    rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Off,
+        tag:On,
+        tag:VFD .
+
+switch:VFD_On_Off_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD On Off Status" ;
+    rdfs:subClassOf brick:On_Off_Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Off,
+        tag:On,
+        tag:Status,
+        tag:VFD .
+
+switch:VFD_Output_Frequency_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Output Frequency Sensor" ;
+    rdfs:subClassOf brick:Output_Frequency_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Frequency,
+        tag:Output,
+        tag:Sensor,
+        tag:VFD .
+
+switch:VFD_Speed_Command a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Speed Command" ;
+    rdfs:subClassOf switch:Speed_Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Speed,
+        tag:VFD .
+
+switch:VFD_Speed_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Speed Sensor" ;
+    rdfs:subClassOf switch:Speed_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sensor,
+        tag:Speed,
+        tag:VFD .
+
+switch:VFD_Speed_Setpoint a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. VFD Speed Setpoint" ;
+    rdfs:subClassOf brick:Speed_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Setpoint,
+        tag:Speed,
+        tag:VFD .
+
+switch:VRF a owl:Class ;
+    rdfs:label "Variable Refrigerant Flow (VRF)" ;
+    rdfs:subClassOf brick:HVAC_Equipment ;
+    skos:definition "A VRF is a condensing unit that supports simultaneous heating and cooling and can control the amount of refrigerant it supplies to the field based on demand." ;
+    brick:hasAssociatedTag tag:VRF .
+
+switch:VSD a owl:Class ;
+    rdfs:label "VSD" ;
+    rdfs:subClassOf brick:Motor ;
+    skos:definition "Variable Speed Drive" ;
+    brick:hasAssociatedTag tag:VSD .
+
+switch:Valve_Position_Status a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Valve Position Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Position,
+        tag:Status,
+        tag:Valve .
+
+switch:Vaporiser_Oil_Temperature_Sensor a owl:Class ;
+    rdfs:label "Vaporiser Oil Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Oil,
+        tag:Sensor,
+        tag:Temperature,
+        tag:Vaporiser .
+
+switch:Vapour_Refrigerant a owl:Class ;
+    rdfs:label "Vapour Phase Refrigerant" ;
+    rdfs:subClassOf brick:Gas ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Refrigerant,
+        tag:Vapour .
+
+switch:Virus_Level_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Virus Level Sensor" ;
+    rdfs:subClassOf switch:Virus_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Sensor,
+        tag:Virus .
+
+switch:Voltage_Phase_AB_Sensor a owl:Class ;
+    rdfs:label "Voltage Phase AB Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:AB,
+        tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Voltage_Phase_AN_Sensor a owl:Class ;
+    rdfs:label "Voltage Phase AN Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:AN,
+        tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Voltage_Phase_BC_Sensor a owl:Class ;
+    rdfs:label "Voltage Phase BC Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:BC,
+        tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Voltage_Phase_BN_Sensor a owl:Class ;
+    rdfs:label "Voltage Phase BN Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:BN,
+        tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Voltage_Phase_CA_Sensor a owl:Class ;
+    rdfs:label "Voltage Phase CA Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:CA,
+        tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Voltage_Phase_CN_Sensor a owl:Class ;
+    rdfs:label "Voltage Phase CN Sensor" ;
+    rdfs:subClassOf brick:Voltage_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:CN,
+        tag:Phase,
+        tag:Sensor,
+        tag:Voltage .
+
+switch:Water_Cooled_Chiller a owl:Class ;
+    rdfs:label "Water Cooled Chiller" ;
+    rdfs:subClassOf brick:Chiller ;
+    skos:definition "A water cooled chiller rejects the absorbed heat to an additional fluid loop that can then reject the heat through a secondary device such as a cooling tower (more common) or dry cooler (less common)" ;
+    brick:hasAssociatedTag tag:Chiller,
+        tag:Cooled,
+        tag:Water .
+
+switch:Zone_Air_CO2_Sensor a owl:Class ;
+    rdfs:label "Zone Air CO2 Sensor" ;
+    rdfs:subClassOf brick:CO2_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:CO2,
+        tag:Sensor,
+        tag:Zone .
+
+switch:Zone_Air_CO2_Setpoint a owl:Class ;
+    rdfs:label "Zone Air CO2 Setpoint" ;
+    rdfs:subClassOf brick:CO2_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:CO2,
+        tag:Setpoint,
+        tag:Zone .
+
+switch:Zone_Air_Humidity_Setpoint a owl:Class ;
+    rdfs:label "Zone Air Humidity Setpoint" ;
+    rdfs:subClassOf brick:Humidity_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Humidity,
+        tag:Setpoint,
+        tag:Zone .
+
+switch:Zone_Air_Pressure_Sensor a owl:Class ;
+    rdfs:label "Zone Air Pressure Sensor" ;
+    rdfs:subClassOf brick:Static_Pressure_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Pressure,
+        tag:Sensor,
+        tag:Zone .
+
+switch:Zone_Air_TVOC_Level_Sensor a owl:Class ;
+    rdfs:label "Zone Air TVOC Level Sensor" ;
+    rdfs:subClassOf brick:TVOC_Level_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Level,
+        tag:Sensor,
+        tag:TVOC,
+        tag:Zone .
+
+switch:Zone_Controller a owl:Class ;
+    rdfs:label "Zone Controller" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "Supervisory controller for a particular location or zone" ;
+    brick:hasAssociatedTag tag:Controller,
+        tag:Zone .
+
+switch:hasObjectPropertyId a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    skos:definition "A unique identifier associated with this entity on the Switch Automation TS database" .
+
+switch:hasTagCollection a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    skos:definition "A collection holding Tag-tag value (k-v) pairs representing free form tags on entities" .
+
+tag:AB a brick:Tag ;
+    rdfs:label "AB" .
+
+tag:ACU a brick:Tag ;
+    rdfs:label "ACU" .
+
+tag:AN a brick:Tag ;
+    rdfs:label "AN" .
+
+tag:After a brick:Tag ;
+    rdfs:label "After" .
+
+tag:Apparent a brick:Tag ;
+    rdfs:label "Apparent" .
+
+tag:Automatic a brick:Tag ;
+    rdfs:label "Automatic" .
+
+tag:Average a brick:Tag ;
+    rdfs:label "Average" .
+
+tag:BC a brick:Tag ;
+    rdfs:label "BC" .
+
+tag:BN a brick:Tag ;
+    rdfs:label "BN" .
+
+tag:CA a brick:Tag ;
+    rdfs:label "CA" .
+
+tag:CDW a brick:Tag ;
+    rdfs:label "CDW" .
+
+tag:CN a brick:Tag ;
+    rdfs:label "CN" .
+
+tag:Calorifier a brick:Tag ;
+    rdfs:label "Calorifier" .
+
+tag:Charger a brick:Tag ;
+    rdfs:label "Charger" .
+
+tag:Circuit a brick:Tag ;
+    rdfs:label "Circuit" .
+
+tag:Communication a brick:Tag ;
+    rdfs:label "Communication" .
+
+tag:Controller a brick:Tag ;
+    rdfs:label "Controller" .
+
+tag:Coupon a brick:Tag ;
+    rdfs:label "Coupon" .
+
+tag:Curtain a brick:Tag ;
+    rdfs:label "Curtain" .
+
+tag:Delivered a brick:Tag ;
+    rdfs:label "Delivered" .
+
+tag:Distribution a brick:Tag ;
+    rdfs:label "Distribution" .
+
+tag:Drain a brick:Tag ;
+    rdfs:label "Drain" .
+
+tag:EV a brick:Tag ;
+    rdfs:label "EV" .
+
+tag:Electrostatic a brick:Tag ;
+    rdfs:label "Electrostatic" .
+
+tag:Emergency a brick:Tag ;
+    rdfs:label "Emergency" .
+
+tag:Escalator a brick:Tag ;
+    rdfs:label "Escalator" .
+
+tag:Factor a brick:Tag ;
+    rdfs:label "Factor" .
+
+tag:Generator a brick:Tag ;
+    rdfs:label "Generator" .
+
+tag:Grey a brick:Tag ;
+    rdfs:label "Grey" .
+
+tag:HHW a brick:Tag ;
+    rdfs:label "HHW" .
+
+tag:Hours a brick:Tag ;
+    rdfs:label "Hours" .
+
+tag:IAQ a brick:Tag ;
+    rdfs:label "IAQ" .
+
+tag:Kitchen a brick:Tag ;
+    rdfs:label "Kitchen" .
+
+tag:Lockout a brick:Tag ;
+    rdfs:label "Lockout" .
+
+tag:Makeup a brick:Tag ;
+    rdfs:label "Makeup" .
+
+tag:Moving a brick:Tag ;
+    rdfs:label "Moving" .
+
+tag:Night a brick:Tag ;
+    rdfs:label "Night" .
+
+tag:Open a brick:Tag ;
+    rdfs:label "Open" .
+
+tag:Optimum a brick:Tag ;
+    rdfs:label "Optimum" .
+
+tag:Pan a brick:Tag ;
+    rdfs:label "Pan" .
+
+tag:Passive a brick:Tag ;
+    rdfs:label "Passive" .
+
+tag:Precipitator a brick:Tag ;
+    rdfs:label "Precipitator" .
+
+tag:Preheating a brick:Tag ;
+    rdfs:label "Preheating" .
+
+tag:Pressurization a brick:Tag ;
+    rdfs:label "Pressurization" .
+
+tag:Primary a brick:Tag ;
+    rdfs:label "Primary" .
+
+tag:Rack a brick:Tag ;
+    rdfs:label "Rack" .
+
+tag:Rain a brick:Tag ;
+    rdfs:label "Rain" .
+
+tag:Recycled a brick:Tag ;
+    rdfs:label "Recycled" .
+
+tag:Reheat a brick:Tag ;
+    rdfs:label "Reheat" .
+
+tag:Saturation a brick:Tag ;
+    rdfs:label "Saturation" .
+
+tag:Separator a brick:Tag ;
+    rdfs:label "Separator" .
+
+tag:Setback a brick:Tag ;
+    rdfs:label "Setback" .
+
+tag:Sewerage a brick:Tag ;
+    rdfs:label "Sewerage" .
+
+tag:Shunt a brick:Tag ;
+    rdfs:label "Shunt" .
+
+tag:Smoke a brick:Tag ;
+    rdfs:label "Smoke" .
+
+tag:Source a brick:Tag ;
+    rdfs:label "Source" .
+
+tag:Staging a brick:Tag ;
+    rdfs:label "Staging" .
+
+tag:Stair a brick:Tag ;
+    rdfs:label "Stair" .
+
+tag:Start a brick:Tag ;
+    rdfs:label "Start" .
+
+tag:Static a brick:Tag ;
+    rdfs:label "Static" .
+
+tag:Supply a brick:Tag ;
+    rdfs:label "Supply" .
+
+tag:Sweeper a brick:Tag ;
+    rdfs:label "Sweeper" .
+
+tag:Switchboard a brick:Tag ;
+    rdfs:label "Switchboard" .
+
+tag:TVOC a brick:Tag ;
+    rdfs:label "TVOC" .
+
+tag:Tank a brick:Tag ;
+    rdfs:label "Tank" .
+
+tag:Toilet a brick:Tag ;
+    rdfs:label "Toilet" .
+
+tag:Tower a brick:Tag ;
+    rdfs:label "Tower" .
+
+tag:Transport a brick:Tag ;
+    rdfs:label "Transport" .
+
+tag:Trip a brick:Tag ;
+    rdfs:label "Trip" .
+
+tag:Triple a brick:Tag ;
+    rdfs:label "Triple" .
+
+tag:UPS a brick:Tag ;
+    rdfs:label "UPS" .
+
+tag:Unit a brick:Tag ;
+    rdfs:label "Unit" .
+
+tag:VRF a brick:Tag ;
+    rdfs:label "VRF" .
+
+tag:VSD a brick:Tag ;
+    rdfs:label "VSD" .
+
+tag:Vaporiser a brick:Tag ;
+    rdfs:label "Vaporiser" .
+
+tag:Vapour a brick:Tag ;
+    rdfs:label "Vapour" .
+
+tag:Vertical a brick:Tag ;
+    rdfs:label "Vertical" .
+
+tag:WPU a brick:Tag ;
+    rdfs:label "WPU" .
+
+tag:Walkway a brick:Tag ;
+    rdfs:label "Walkway" .
+
+tag:Wetbulb a brick:Tag ;
+    rdfs:label "Wetbulb" .
+
+switch:ACU a owl:Class ;
+    rdfs:label "Air Conditioning Unit" ;
+    rdfs:subClassOf brick:Terminal_Unit ;
+    skos:definition "In-zone equipment that has a compressor. May be air-source or water-source." ;
+    brick:hasAssociatedTag tag:ACU .
+
+switch:Cold_Plate_Temperature_Sensor a owl:Class ;
+    rdfs:label "Cold Plate Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Cold,
+        tag:Plate,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:DOAS a owl:Class ;
+    rdfs:label "DOAS" ;
+    rdfs:subClassOf brick:AHU ;
+    skos:definition "Dedicated Outside Air System" ;
+    brick:hasAssociatedTag tag:DOAS .
+
+switch:Grey_Water_System a owl:Class ;
+    rdfs:label "Grey Water System" ;
+    rdfs:subClassOf brick:System ;
+    owl:equivalentClass switch:Recycled_Water_System ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Grey,
+        tag:System,
+        tag:Water .
+
+switch:Induction_Beam a owl:Class ;
+    rdfs:label "Induction Beam" ;
+    rdfs:subClassOf brick:Terminal_Unit ;
+    owl:equivalentClass switch:Induction_Unit ;
+    skos:definition "Chilled beam with integrated condensate pan; handles sensible and latent cooling. Essentially an FCU without a fan or motor." ;
+    brick:hasAssociatedTag tag:Beam,
+        tag:Induction .
+
+switch:Induction_Unit a owl:Class ;
+    rdfs:label "Induction Unit" ;
+    rdfs:subClassOf brick:Terminal_Unit ;
+    owl:equivalentClass switch:Induction_Beam ;
+    skos:definition "Chilled beam with integrated condensate pan; handles sensible and latent cooling. Essentially an FCU without a fan or motor." ;
+    brick:hasAssociatedTag tag:Induction,
+        tag:Unit .
+
+switch:Min_Speed_Setpoint a owl:Class ;
+    rdfs:label "Min Speed Setpoint" ;
+    rdfs:subClassOf brick:Speed_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Min,
+        tag:Setpoint,
+        tag:Speed .
+
+switch:Radon_Sensor a owl:Class ;
+    rdfs:label "Radon Sensor" ;
+    rdfs:subClassOf brick:Particulate_Matter_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Radon,
+        tag:Sensor .
+
+switch:Recycled_Water_System a owl:Class ;
+    rdfs:label "Recycled Water System" ;
+    rdfs:subClassOf brick:System ;
+    owl:equivalentClass switch:Grey_Water_System ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Recycled,
+        tag:System,
+        tag:Water .
+
+switch:Refrigerant_Leaving_Temperature_Sensor a owl:Class ;
+    rdfs:label "Refrigerant Leaving Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Leaving,
+        tag:Refrigerant,
+        tag:Sensor,
+        tag:Temperature .
+
+switch:Speed_Command a owl:Class ;
+    rdfs:label "Speed Command" ;
+    rdfs:subClassOf brick:Command ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Command,
+        tag:Speed .
+
+switch:Virus_Sensor a owl:Class ;
+    rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Virus Sensor" ;
+    rdfs:subClassOf brick:Particulate_Matter_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sensor,
+        tag:Virus .
+
+switch:WPU a owl:Class ;
+    rdfs:label "WPU",
+        "Water Packaged Unit" ;
+    rdfs:subClassOf switch:ACU,
+        switch:Heat_Pump ;
+    owl:equivalentClass switch:Water_Source_Heat_Pump ;
+    skos:definition "",
+        "In-zone equipment that has a compressor and moves heat to a condenser water loop." ;
+    brick:hasAssociatedTag tag:WPU .
+
+switch:Water_Flow_Setpoint a owl:Class ;
+    rdfs:label "Water Flow Setpoint" ;
+    rdfs:subClassOf brick:Flow_Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Flow,
+        tag:Setpoint,
+        tag:Water .
+
+switch:Water_Source_Heat_Pump a owl:Class ;
+    rdfs:label "Water Source Heat Pump" ;
+    rdfs:subClassOf switch:Heat_Pump ;
+    owl:equivalentClass switch:WPU ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Heat,
+        tag:Pump,
+        tag:Source,
+        tag:Water .
+
+tag:A a brick:Tag ;
+    rdfs:label "A" .
+
+tag:Adjust a brick:Tag ;
+    rdfs:label "Adjust" .
+
+tag:B a brick:Tag ;
+    rdfs:label "B" .
+
+tag:C a brick:Tag ;
+    rdfs:label "C" .
+
+tag:Cooled a brick:Tag ;
+    rdfs:label "Cooled" .
+
+tag:Domestic a brick:Tag ;
+    rdfs:label "Domestic" .
+
+tag:EconCycle a brick:Tag ;
+    rdfs:label "EconCycle" .
+
+tag:Heat a brick:Tag ;
+    rdfs:label "Heat" .
+
+tag:Heater a brick:Tag ;
+    rdfs:label "Heater" .
+
+tag:Induction a brick:Tag ;
+    rdfs:label "Induction" .
+
+tag:Line a brick:Tag ;
+    rdfs:label "Line" .
+
+tag:Output a brick:Tag ;
+    rdfs:label "Output" .
+
+tag:Overridden a brick:Tag ;
+    rdfs:label "Overridden" .
+
+tag:Plate a brick:Tag ;
+    rdfs:label "Plate" .
+
+tag:Radon a brick:Tag ;
+    rdfs:label "Radon" .
+
+tag:Reversing a brick:Tag ;
+    rdfs:label "Reversing" .
+
+tag:Run a brick:Tag ;
+    rdfs:label "Run" .
+
+tag:Secondary a brick:Tag ;
+    rdfs:label "Secondary" .
+
+tag:Stage a brick:Tag ;
+    rdfs:label "Stage" .
+
+tag:Unoccupied a brick:Tag ;
+    rdfs:label "Unoccupied" .
+
+tag:Velocity a brick:Tag ;
+    rdfs:label "Velocity" .
+
+tag:Virus a brick:Tag ;
+    rdfs:label "Virus" .
+
+switch:Chilled_Beam a owl:Class ;
+    rdfs:label "Chilled Beam" ;
+    rdfs:subClassOf brick:Terminal_Unit ;
+    skos:definition "A device with an integral coil that cools a space via circulation of room air" ;
+    brick:hasAssociatedTag tag:Beam,
+        tag:Chilled .
+
+switch:Count_Status a owl:Class ;
+    rdfs:label "Count Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Count,
+        tag:Status .
+
+switch:Heat_Pump a owl:Class ;
+    rdfs:label "Heat Pump" ;
+    rdfs:subClassOf brick:HVAC_Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Heat,
+        tag:Pump .
+
+switch:Position_Status a owl:Class ;
+    rdfs:label "Position Status" ;
+    rdfs:subClassOf brick:Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Position,
+        tag:Status .
+
+switch:Request_Status a owl:Class ;
+    rdfs:label "Request Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Request,
+        tag:Status .
+
+switch:Transfer_Switch a owl:Class ;
+    rdfs:label "Transfer Switch" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "An electrical switch that switches a load between two sources" ;
+    brick:hasAssociatedTag tag:Switch,
+        tag:Transfer .
+
+switch:Vertical_Transport a owl:Class ;
+    rdfs:label "Vertical Transport" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Transport,
+        tag:Vertical .
+
+switch:Zone_Sensor_Equipment a owl:Class ;
+    rdfs:label "Zone Sensor" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "Independent sensors that do not belong to a typically equipment entity. Typically stand-alone or third-party sensors." ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Sensor,
+        tag:Zone .
+
+tag:Cold a brick:Tag ;
+    rdfs:label "Cold" .
+
+tag:Count a brick:Tag ;
+    rdfs:label "Count" .
+
+tag:DHW a brick:Tag ;
+    rdfs:label "DHW" .
+
+tag:Dehumidification a brick:Tag ;
+    rdfs:label "Dehumidification" .
+
+tag:Low a brick:Tag ;
+    rdfs:label "Low" .
+
+tag:Mode a brick:Tag ;
+    rdfs:label "Mode" .
+
+tag:Occupied a brick:Tag ;
+    rdfs:label "Occupied" .
+
+tag:Request a brick:Tag ;
+    rdfs:label "Request" .
+
+tag:Side a brick:Tag ;
+    rdfs:label "Side" .
+
+tag:Transfer a brick:Tag ;
+    rdfs:label "Transfer" .
+
+switch:Load_Sensor a owl:Class ;
+    rdfs:label "Load Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Load,
+        tag:Sensor .
+
+tag:Beam a brick:Tag ;
+    rdfs:label "Beam" .
+
+tag:Bypass a brick:Tag ;
+    rdfs:label "Bypass" .
+
+tag:Current a brick:Tag ;
+    rdfs:label "Current" .
+
+tag:Effective a brick:Tag ;
+    rdfs:label "Effective" .
+
+tag:Fault a brick:Tag ;
+    rdfs:label "Fault" .
+
+tag:High a brick:Tag ;
+    rdfs:label "High" .
+
+tag:Hot a brick:Tag ;
+    rdfs:label "Hot" .
+
+tag:Max a brick:Tag ;
+    rdfs:label "Max" .
+
+tag:Mixed a brick:Tag ;
+    rdfs:label "Mixed" .
+
+switch:Position_Setpoint a owl:Class ;
+    rdfs:label "Position Setpoint" ;
+    rdfs:subClassOf brick:Setpoint ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Position,
+        tag:Setpoint .
+
+switch:Speed_Sensor a owl:Class ;
+    rdfs:label "Speed Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sensor,
+        tag:Speed .
+
+tag:Evaporator a brick:Tag ;
+    rdfs:label "Evaporator" .
+
+tag:Min a brick:Tag ;
+    rdfs:label "Min" .
+
+tag:Return a brick:Tag ;
+    rdfs:label "Return" .
+
+tag:Active a brick:Tag ;
+    rdfs:label "Active" .
+
+tag:Load a brick:Tag ;
+    rdfs:label "Load" .
+
+tag:Call a brick:Tag ;
+    rdfs:label "Call" .
+
+tag:Differential a brick:Tag ;
+    rdfs:label "Differential" .
+
+tag:Enable a brick:Tag ;
+    rdfs:label "Enable" .
+
+tag:Entering a brick:Tag ;
+    rdfs:label "Entering" .
+
+tag:Exhaust a brick:Tag ;
+    rdfs:label "Exhaust" .
+
+tag:Heating a brick:Tag ;
+    rdfs:label "Heating" .
+
+tag:Cooling a brick:Tag ;
+    rdfs:label "Cooling" .
+
+tag:Isolation a brick:Tag ;
+    rdfs:label "Isolation" .
+
+tag:Refrigerant a brick:Tag ;
+    rdfs:label "Refrigerant" .
+
+tag:Phase a brick:Tag ;
+    rdfs:label "Phase" .
+
+tag:Discharge a brick:Tag ;
+    rdfs:label "Discharge" .
+
+tag:Leaving a brick:Tag ;
+    rdfs:label "Leaving" .
+
+tag:Chilled a brick:Tag ;
+    rdfs:label "Chilled" .
+
+tag:Off a brick:Tag ;
+    rdfs:label "Off" .
+
+tag:On a brick:Tag ;
+    rdfs:label "On" .
+
