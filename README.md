@@ -9,6 +9,7 @@ The tool validates the following:
 * Entities have an ID defined
 * Entities have a valid class defined (either from Brick, or provided custom ontology)
 * Relationships per entity reference other defined entities
+* Checks subject uniqueness
 
 ## Example Usage
 
@@ -18,7 +19,7 @@ import os
 
 model_path = r"path_to_excel/excel_file.xlsx"
 
-bad_rows, bad_refs, bad_classes = bv.validate(os.path.join(model_path))
+bad_rows, bad_refs, bad_classes, duplicate_ids = bv.validate(os.path.join(model_path))
 ```
 
 The validator can take a number of options:
@@ -32,6 +33,7 @@ The output of the validator is:
 * pandas dataframe containing the 'bad' rows from the read file, including the errors found for that row
 * set of non-existing entities (i.e. bad references)
 * set of invalid classes
+* list of pandas dataframes containing rows with duplicated ids per sheet 
 
 ## Installation
 Create a new environment and install from github:

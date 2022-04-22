@@ -89,6 +89,7 @@ def validateReferenceColumn(dfs:dict, reference_field:str) -> bool:
         logger.info(f"--> SUCCESS. Validated relationship identifier column for {k}")
     return True
 
+
 def validateReferences(dfs, available_references, ontologyName: str, relationships_to_process: list) -> Tuple[pd.DataFrame, list]:
     """
     For each relationship in relationships_to_process, check that all referenced entities exist in the {relationship_ref_field} list
@@ -144,3 +145,26 @@ def validateReferences(dfs, available_references, ontologyName: str, relationshi
 
 
     return pd.DataFrame(bad_entries_list), bad_refs_list
+
+# validate uniqueness
+def validateUniqueness(dfs, column_name:tuple) -> Tuple[bool, list]:
+    '''
+    Check column for duplicate values
+    :return: bool: is column unique?, list: duplicate values 
+    '''
+    logger.info("Validating that subject identifiers are unique across the model...")
+    all_valid = True
+    duplicates = []
+    for k, df in dfs.items():
+        check = df[column_name].is_unique
+        if check:
+            logger.info(f"SUCCESS: Sheet: {k} subject identifiers are unique")
+        else:
+            dups = df[df.duplicated([column_name], keep=False)]
+            duplicates.append(dups)
+            logger.error(f"ERROR: Sheet: {k} subject identifiers are not unique")
+        
+        # update all valid
+        all_valid = all_valid and check
+
+    return all_valid, duplicates
