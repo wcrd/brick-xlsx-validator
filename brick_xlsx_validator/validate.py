@@ -32,7 +32,8 @@ def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_
         # subjects = pd.concat([df['Brick']['identifier'] for df in dfs.values()],
         #                      ignore_index=True)
 
-        
+        # validate that subjects are unique
+        all_unique, duplicate_ids = vd.validateUniqueness(dfs, ("Brick", "identifier"))
 
         # validate sheet references against this list
         bad_rows, bad_references = vd.validateReferences(dfs, entities_by_referenced_field, "Brick", BRICK_RELATIONSHIPS)
@@ -44,7 +45,7 @@ def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_
         logger.info(f"Process complete.")
         logger.info(f" {len(bad_rows)} entities with bad references found in file {filepath} with a total of {len(bad_references)} instances of bad references")
 
-        return bad_rows, set(bad_references), bad_classes
+        return bad_rows, set(bad_references), bad_classes, duplicate_ids
 
     except Exception as e:
         logger.error(f"Failed to process file {filepath} due to errors in the file")
