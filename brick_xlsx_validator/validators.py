@@ -109,7 +109,7 @@ def validateReferences(dfs, available_references, ontologyName: str, relationshi
         # validate that ontology columns exist in the dataframe
         headerExists = ontologyName in df.columns
         if not headerExists:
-            logger.warning(f"No {ontologyName} columns have been provided in sheet: {sheet}\nMoving to next sheet.")
+            logger.warning(f"No {ontologyName} columns have been provided in sheet: {sheet}\nMoving to next relationship.")
             continue
 
         # get relationships defined in the model
@@ -152,17 +152,17 @@ def validateUniqueness(dfs, column_name:tuple) -> Tuple[bool, list]:
     Check column for duplicate values
     :return: bool: is column unique?, list: duplicate values 
     '''
-    logger.info("Validating that subject identifiers are unique across the model...")
+    logger.info(f"Validating that {column_name} are unique across the model...")
     all_valid = True
     duplicates = []
     for k, df in dfs.items():
         check = df[column_name].is_unique
         if check:
-            logger.info(f"SUCCESS: Sheet: {k} subject identifiers are unique")
+            logger.info(f"SUCCESS: Sheet: {k} {column_name} are unique")
         else:
             dups = df[df.duplicated([column_name], keep=False)]
             duplicates.append(dups)
-            logger.error(f"ERROR: Sheet: {k} subject identifiers are not unique")
+            logger.error(f"ERROR: Sheet: {k} {column_name} are not unique. {len(dups)} duplicate rows exist.")
         
         # update all valid
         all_valid = all_valid and check
