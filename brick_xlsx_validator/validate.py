@@ -10,7 +10,15 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-def validate(filepath, load_brick: bool = True, load_switch: bool = True, brick_version: str = "1.2", switch_version: str = "1.1.3", custom_graph: rdflib.Graph = None, reference_field: tuple = ("General","uuid")) -> Tuple[pd.DataFrame, set, list]:
+def validate(
+    filepath, 
+    load_brick: bool = True, 
+    load_switch: bool = True, 
+    brick_version: str = "1.2", 
+    switch_version: str = "1.1.4", 
+    custom_graph: rdflib.Graph = None, 
+    reference_field: tuple = ("General","uuid")
+) -> Tuple[pd.DataFrame, set, list]:
     """Most of this function should be replaced by pandas validation package"""
     try:
         xlFile = pd.ExcelFile(filepath)
