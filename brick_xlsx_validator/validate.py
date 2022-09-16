@@ -15,11 +15,32 @@ def validate(
     load_brick: bool = True, 
     load_switch: bool = True, 
     brick_version: str = "1.2", 
-    switch_version: str = "1.1.4", 
+    switch_version: str = "1.1.7", 
     custom_graph: rdflib.Graph = None, 
     reference_field: tuple = ("General","uuid")
 ) -> Tuple[pd.DataFrame, set, list]:
-    """Most of this function should be replaced by pandas validation package"""
+    """
+    Validate checks that:
+    1. Input excel has sheets for Equipment, Locations, and Points and that the bare minimum expected headers are provided.
+    2. Validates that the provided reference column is valid (default: ("General", "uuid")).
+    3. Validates that each entity is only defined once (is unique)
+    4. Validates that all referenced entities exist
+    5. Validates that classes used exist in Brick, Switch, or user provided ontology
+
+    @params:
+    custom_graph: A rdflib.Graph that can be used for validating classes against (i.e. in addition to Brick and Switch ontologies).
+    reference_field: Tuple containing the column multi-header tuple for the input excel file field to be used as the 'reference' field; 
+                    i.e. what field has been referenced by other entities in their relationship fields.
+                    Defaults is the ('General', 'uuid') column, but it is common to use the ('Brick', 'label') column instead
+
+    Returns:
+    bad_rows: pandas dataframe containing the 'bad' rows from the read file, including the errors found for that row
+    bad_refs: set of non-existing entities (i.e. bad references)
+    bad_classes: set of invalid classes
+    duplicates: list of pandas dataframes containing rows with duplicated ids per sheet 
+    
+    Most of this function should be replaced by pandas validation package
+    """
     try:
         xlFile = pd.ExcelFile(filepath)
 

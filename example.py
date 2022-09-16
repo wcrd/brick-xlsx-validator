@@ -7,4 +7,4 @@ import os
 # model_path = r"C:\Users\WillDavidson\Downloads\eau_clair_equip.xlsx"
 model_path = r"C:\Users\WillDavidson\OneDrive - Switch Automation\R&D\Brick Modelling\sites\Carrier Lerner\20210808 - Carrier-Lerner _newFormat.xlsx"
 
-df, bad_refs, bad_classes, duplicate_ids = bv.validate(os.path.join(model_path), reference_field=("Brick", "label"))
+df, bad_refs, bad_classes, duplicate_ids = bv.validate(os.path.join(model_path), switch_version="1.1.7", reference_field=("Brick", "label"))
