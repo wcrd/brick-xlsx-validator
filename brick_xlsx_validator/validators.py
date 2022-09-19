@@ -33,7 +33,7 @@ def validateIdentifierColumns(dfs:dict):
         logger.info(f"--> SUCCESS. Validated identifiers for {k}")
 
 
-def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, brick_version: str, switch_version: str, custom_graph: rdflib.Graph = None):
+def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, brick_version: str, switch_version: str, path_to_local_brick: str = None, path_to_local_switch: str = None, custom_graph: rdflib.Graph = None):
     g = rdflib.Graph()
     bad_classes = []
 
@@ -45,6 +45,10 @@ def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, bri
         ).decode()
         # wrap in StringIO to make it file-like
         g.parse(source=io.StringIO(data), format="turtle")
+    else:
+        # check for local brick path
+        if path_to_local_brick:
+            g.parse(path_to_local_brick, format="turtle")
 
     if load_switch:
         logger.info("Loading Switch Ontology for validation")
@@ -54,6 +58,10 @@ def validateClasses(classes: pd.Series, load_brick: bool, load_switch: bool, bri
         ).decode()
         # wrap in StringIO to make it file-like
         g.parse(source=io.StringIO(data), format="turtle")
+    else:
+        # check for local brick path
+        if path_to_local_switch:
+            g.parse(path_to_local_switch, format="turtle")
 
     if custom_graph:
         logger.info("Loading custom ontology for validation")

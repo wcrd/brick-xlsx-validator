@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "brick-xlsx-validator"
-version = "0.1.1"
+version = "0.1.2"
 description = "Validates input excel files"
 authors = ["wcrd <11898748+wcrd@users.noreply.github.com>"]
 license = "MIT"

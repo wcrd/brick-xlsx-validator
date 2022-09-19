@@ -15,7 +15,9 @@ def validate(
     load_brick: bool = True, 
     load_switch: bool = True, 
     brick_version: str = "1.2", 
-    switch_version: str = "1.1.7", 
+    switch_version: str = "1.1.7",
+    path_to_local_brick: str = None, 
+    path_to_local_switch: str = None,  
     custom_graph: rdflib.Graph = None, 
     reference_field: tuple = ("General","uuid")
 ) -> Tuple[pd.DataFrame, set, list]:
@@ -32,6 +34,8 @@ def validate(
     reference_field: Tuple containing the column multi-header tuple for the input excel file field to be used as the 'reference' field; 
                     i.e. what field has been referenced by other entities in their relationship fields.
                     Defaults is the ('General', 'uuid') column, but it is common to use the ('Brick', 'label') column instead
+    path_to_local_brick: Absolute path to local TTL to use as the Brick ontology. Only evaluated if load_brick=False
+    path_to_local_switch: Absolute path to local TTL to use as the Switch ontology. Only evaluated if load_switch=False
 
     Returns:
     bad_rows: pandas dataframe containing the 'bad' rows from the read file, including the errors found for that row
@@ -69,7 +73,7 @@ def validate(
 
         # validate subjects are valid Brick or Switch entities
         classes = pd.concat([df['Brick']['class'] for df in dfs.values()], ignore_index=True).drop_duplicates().dropna()
-        bad_classes = vd.validateClasses(classes, load_brick, load_switch, brick_version, switch_version, custom_graph)
+        bad_classes = vd.validateClasses(classes, load_brick, load_switch, brick_version, switch_version, path_to_local_brick, path_to_local_switch, custom_graph)
 
         logger.info(f"Process complete.")
         logger.info(f" {len(bad_rows)} entities with bad references found in file {filepath} with a total of {len(bad_references)} instances of bad references")
